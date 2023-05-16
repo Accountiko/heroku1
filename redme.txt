@@ -1,0 +1,4 @@
+cd francisworks/accountiko/codes/app
+source myenv/bin/activate
+cd accountiko
+python manage.py runserver
