@@ -6,6 +6,3 @@ register = template.Library()
 def zips(a, b):
   return zip(a, b)
 
-@register.simple_tag
-def ziped3(a,b,c):
-  return zip(a,b,c)

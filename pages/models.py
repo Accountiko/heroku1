@@ -62,13 +62,9 @@ class FAQ(models.Model):
         return self.questions.split('|')
     
     def get_answers_list(self):
-        
-
         return self.answers.split('|')
     
     def get_number(self):
-        
-        # need to find the way
         num = range(0,len(self.questions.split('|')))
         return num
 

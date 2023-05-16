@@ -369,17 +369,17 @@
         </h2>
 
         <div class="accordion accordion-flush FAQ" id="accordionFlushExample">
-            {% for i,j,k in pages.faq.get_questions_list|3zips:pages.faq.get_answers_list pages.faq.get_number %}
+            {% for i,j in pages.faq.get_questions_list|zips:pages.faq.get_answers_list|zips:pages.faq.get_number %}
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#num{{pages.faq.get_number}}" aria-expanded="false" aria-controls="flush-collapseOne">
-                      {{i}} 
+                        data-bs-target="#num{{j}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                      {{i.0}} 
                     </button>
                 </h2>
-                <div id="num{{pages.faq.get_number}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                <div id="num{{j}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">{{j}}</div>
+                    <div class="accordion-body">{{i.1}}</div>
                 </div>
              </div>
             {% endfor %}
