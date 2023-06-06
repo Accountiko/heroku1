@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import *
+from django.conf import settings
 # Register your models here.
 admin.site.site_header = 'Accountkio Dashboard'
 
 
+
 class PageAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('title','category','is_featured')
     search_fields = ['title',]
 
 

@@ -1,37 +1,30 @@
+{% extends "base.html" %}
 {% load static %}
 {% load customtag %}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accountiko</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'page.css' %}" />
-   
-    <script src="https://code.jquery.com/jquery-3.6.4.js"
-        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script>
-      
-    </script>
+{% block meta_title %} {{pages.meta_title}} {% endblock %}
+{% block meta_des %} {{pages.meta_description}} {% endblock %}
+{% block meta_key %} {{pages.meta_keywords}} {% endblock %}
+{% block meta_url %} https://www.{{request.get_host}}{{pages.get_absolute_url}} {% endblock %}
+{% block og_meta_title %} {{pages.meta_title}} {% endblock %}
+{% block og_meta_des %} {{pages.meta_description}}  {% endblock %}
 
-</head>
-
-<body>
-
-    <div class="cover">
+    {% block content %}
+    
+    
+    <div class="cover text-white">
+       
         <div class="container">
            
-           
+          
             <div class="row">
                 <div class=" flex-column mt-3 ">
-                    <h1 class="m-3  fw-bolder">{{pages.title}}</h1>
+                    <h1 class="m-3  fw-bolder ">{{pages.title}} </h1>
+                    
+                    
 
-                    <ul class="list-group px-3 py-3 ">
+                    <ul class="list-group px-3 py-3 " >
 
                         {% for p in pages.get_title_description_list %}
                         <li class="  "> <i class="fa-regular fa-circle-check px-3"></i>{{p}}</li>
@@ -40,8 +33,8 @@
                        
                         
                     </ul>
-                    <a href="https://wa.me/8608750899?text=I'm%20interested%20in%20this%20servies%20Limited Liability Partnership (LLP) Registrations"
-                        target="_blank"><img class="request" src="" /></a>
+                    <a href="https://wa.me/{{contact.0.Whatsapp_number}}?text={{pages.title|whatsappmsg}}"
+                        target="_blank"><img class="request" src="{% static 'img/request.png' %}" /></a>
 
                 </div>
 
@@ -50,64 +43,63 @@
         </div>
 
     </div>
-    <div class="container d-none d-lg-block shadow-sm sticky"
-        style="background-color: rgb(218, 218, 218);border-radius: 10px;margin-top: 10px;">
-        <div class="sub-menu">
+    <div class="container d-none d-lg-block shadow sticky "
+        style="background: #36D1DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ border-radius: 10px;margin-top: 10px;z-index: 1;">
+        <div class="sub-menud">
             <span class="sub-menu-item"><a href="#Procedure">Procedure</a> </span>
             <span class="sub-menu-item"><a href="#Definition">Definition</a> </span>
             <span class="sub-menu-item"><a href="#doc">Documents</a> </span>
-            <span class="sub-menu-item"><a href="#step">Steps</a> </span>
             <span class="sub-menu-item"><a href="#eligib">Eligibility</a> </span>
             <span class="sub-menu-item"><a href="#FAQ">FAQ</a> </span>
-            <span><a href="https://wa.me/8608750899?text=I'm%20interested%20in%20this%20servies%20Limited Liability Partnership (LLP) Registrations"
-                    target="_blank"><img class="request2" src="assets/request.png" /></a>
+            <span><a href="https://wa.me/{{contact.0.Whatsapp_number}}?text={{pages.title|whatsappmsg}}"
+                    target="_blank"><img class="request2" src="{% static 'img/request.png' %}" /></a>
             </span>
 
         </div>
     </div>
-    <br />
-    <div id="Procedure" class="container mt-5 text-center">
-        <h2 class="fw-bolder">{{pages.how_to_register.title}}</h2>
-
-        <p class="fst-italic fw-light p-3 px-5">{{pages.how_to_register.description}}</p>
+    <br id="Procedure"  />
+    <div  style=" padding: 15px; margin-top: 30px;">
+    <div  class="container mt-6 text-center">
+        <h2 class="fw-bolder tt" >{{pages.how_to_register.title}}</h2>
+        
+        <hr class="style-eight">
+        <p class="fst-italic  p-3 px-lg-5" align="justify">{{pages.how_to_register.description}}</p>
     </div>
 
-    <div class="container">
+    <div class="container ">
         <div class="cards flex ">
 
             {% for i,j in pages.how_to_register.get_card_titles_list|zips:pages.how_to_register.get_card_descriptions_list %}
-            <div class="card shadow p-3 text-center">
-                <span class="position-absolute top-0 start-50 translate-middle badge bg-info">
-                    Within 3 Working Days
-                    <span class="visually-hidden">unread messages</span>
-                </span>
-                <img src="assets/id-card.png" />
-                <h5>{{i}}</h5>
-                 <p>{{j}}</p>
-                
-               
-            </div>
+            <div class="card2">
+                <div class="card2-content">
+                  <p class="card2-title">{{i}}
+                  </p><p class="card2-para">{{j}}</p>
+                </div>
+              </div>
+              
             {% endfor %}
            
             
-            <div class="card shadow p-3 text-center ">
-                <img class="mt-5" src="assets/smiley.png" />
-
-            </div>
+            
         </div>
     </div>
 
-
+    </div>
     <br />
 
     <!--definition-->
-    <div class="container">
-        <div id="Definition" class="container mt-5 text-center">
-            <h2 class="fw-bolder">{{pages.definition.title}}</h2>
-
-            <p class="fst-italic fw-light p-3 px-2" align="justify">{{pages.definition.definition}}</p>
-
+    <div  class="container flex">
+        <br id="Definition"/>
+        <div  class="container mt-5 text-center">
+            <h2 class="fw-bolder tt" >{{pages.definition.title}}</h2>
+            <hr class="style-eight">
+            <p  class="fst-italic  p-3 px-2" align="justify">{{pages.definition.definition}}</p>
+           
         </div>
+        
        <!--<div class="px-5">
             <h5 style="padding-left: 18px;">Choose LLP because</h5>
             <ul>
@@ -120,91 +112,61 @@
         </div> -->
 
     </div>
-    <br />
+    <br id="doc" />
 
     <!--Document required-->
-    <div class=" tbg p-5" id ="doc">
-        <h2 class="fw-bolder text-center pb-3">{{pages.documents_required.title}}</h2>
-        <div class="Doc-card">
-            <div>
-                <img src="assets/file.png" alt="document required" style="width: 400px;height: auto;">
+    <div class="container mt-5">
+        <h2 class="fw-bolder text-center  tt" >{{pages.documents_required.title}}</h2>
+        <hr class="style-eight">
+        <div class="doc-2 ">
+           
+            <div class="doc-2-left">
+
+                <img src="{% static 'img/file.png' %}" alt="document required" >
+         
             </div>
-            <div class="pt-2">
-                <ul>
-                    {% for doc in pages.documents_required.get_documents_list %}
-                    <li>{{doc}}</li>
+            <div class="doc-2-right shadow">
+                {% for doc in pages.documents_required.get_documents_list %}
+                    <p> <i class="fa-solid fa-thumbs-up" style="margin-right: 5px;color: #3694dc;"></i> {{doc}}</p>
                    {% endfor %}
-                </ul>
+                
             </div>
         </div>
+    </div>
 
+   
     </div>
     <br />
 
-    <!-- Factor-->
-
+    <!-- Extra cards-->
+    {% if pages.extra_cards %}
+    {% for extra_card in pages.extra_cards.all  %}
     <div class="container ">
-        <h2 class="fw-bolder text-center">Factors to Consider While Selecting an LLP Name</h2>
-        <p class="fst-italic fw-light p-3 px-5" align='justify'>The Registrar of Companies (RoC) has issued specifying
-            rules for LLPs. You should meet the standards or your application may wind up getting dismissed, prompting a
-            much longer procedure.</p>
+        <h2 class="fw-bolder text-center tt" >{{extra_card.title}}</h2>
+        <hr class="style-eight">
+        <p class="fst-italic fw-light p-3 " align='justify'>{{extra_card.description}}</p>
         <div class="h-cards ">
-            <div class="h-card shadow ">
 
-                <h3>Meaningful</h3>
-                <p align='justify'>The name of your LLP Company should be connected to your business. It must suit the
-                    organization’s marking. For instance, Lilliput implies small, as “Lilliput” is a kid’s clothing
-                    brand.</p>
+            {% for i,j in extra_card.get_card_title_list|zips:extra_card.get_card_descriptions_list %}
+            <div class="card1 text-white m-4">
+                <div class="card__content p-4 ">
+                    <h4>{{i}}</h4>
+                    <p>{{j}}</p>
+                </div>
 
             </div>
-            <div class="h-card shadow ">
-                <h3>Short & Simple</h3>
-                <p align='justify'>The name of an LLP must be short and not excessively long. It must be easy to
-                    pronounce by other people. And it should get inked in the minds of people when they hear it the
-                    first time itself.</p>
-            </div>
-            <div class="h-card shadow ">
-                <h3>Unique Component</h3>
-                <p align='justify'>The name of your company should not either be identical or the same as a current
-                    company, business, or trademark. You can go to “search.LegalRaasta.com” to confirm if your company’s
-                    name is similar or identical to others. You should stay away from plural variants e.g., “Amazons” or
-                    changing simply the letter Case, adding spacing, or punctuation marks in an already existing
-                    company’s name.</p>
-            </div>
-
-            <div class="h-card shadow ">
-                <h3>Blacklist</h3>
-                <p align='justify'>Abstracts, adjectives, and generic words are denied. So a name like “XYZ” will be
-                    rejected on the spot. The following words “bank, exchange, and stock exchange” will also be denied.
-                </p>
-            </div>
-            <div class="h-card shadow ">
-                <h3>No same Trademarks</h3>
-                <p align='justify'>There should not be a certified trademark by the identical name on the “IP India”
-                    website. If there exists one, then also your chosen company name can be approved if you are able to
-                    obtain a “NOC” from its owner, which will authorize you to use the name.</p>
-            </div>
-            <div class="h-card shadow ">
-                <h3>Suffix</h3>
-                <p align='justify'>The name of your LLP Company must finish with the suffix “LLP” is an instance of a
-                    limited liability partnership</p>
-            </div>
-            <div class="h-card shadow ">
-                <h3>Descriptive Name</h3>
-                <p align='justify'>The chosen name should be descriptive, meaning that the name itself should be able to
-                    tell about a number of traits of the LLP</p>
-            </div>
-            <div class="h-card shadow ">
-                <h3>Should not be illegal or offensive</h3>
-                <p align='justify'>While getting an LLP name to ensure that you don’t conflict against the law. It
-                    should not be abusive or against the traditions and convictions of any religion and should not harm
-                    anyone’s respect.</p>
-            </div>
+            {% endfor %}
+            
+            
         </div>
 
     </div>
+    {% endfor %}
+    {% endif %}
     <br>
     <!--steps-->
+<!--
+
 
     <div class="container" id = 'step'>
         <h2 class="fw-bolder text-center">Steps to form an LLP</h2>
@@ -269,102 +231,77 @@
         </div>
         <br />
     </div>
-    <!--Why choose -->
- 
-
-    {% if pages.extra_split_faces %}
-        <div class="container">
-        {% for extra in pages.extra_split_faces.all %}
-        <h2 class="fw-bolder text-center">
-            {{extra.title}}
-        </h2>
-        <p class="fst-italic fw-light p-3 px-5 text-center"> {{extra.description}}</p>
-        
-        <div class="Doc-card">
-            <div>
-
-                <img src="assets/why.png" alt="why " style="width: 400px;height: auto;">
+    -->
+    
+    <br id="eligib" />
 
 
-            </div>
-            <div>
-               
-                <ul>
-                    {% for point in extra.get_points_list %}
-                    <li>{{point}}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            </div>
-            {% if extra.extras %}
-            <p align='justify'>{{extra.extras}}</p>
-            {% endif %}
-            </div>
-            {% endfor %}
-    {% endif %}
-
-    <br />
-
+   
     <!-- Eligibilty-->
-    <div class="container mt-2" id="eligib">
-        <h2 class="fw-bolder text-center">
+    <div class="container mt-5" >
+        <h2 class="fw-bolder text-center tt" >
             {{pages.eligibility.title}}
         </h2>
-        <div class=" circle-cards mt-4">
+        <hr class="style-eight">
+        <div class="outer shadow-sm">
             {% for eli in pages.eligibility.get_eligibilities_list %}
-            <div class="circle-card shadow ">
-
-                <img src="/assets/file-upload.png " style="width: 100px;height: auto;" />
-                <p class="p-3">Minimum 2 Partners (18 years and above age)</p>
+            <div class="inner-c shadow">
+                <h6 class="text-center">{{eli}}</h6>
             </div>
             {% endfor %}
-           
         </div>
+        
 
+       
 
     </div>
     <br />
+    
 
-    <!-- Compliance Requirements-->
+   
+<!--\Extra split faces -->
+ 
 
-    <div class="container">
-        <h2 class="fw-bolder text-center mt-3 mb-3">
-            Eligibility For LLP Registration
-        </h2>
-        <div class="Doc-card">
-            <div style="width: 500px;height: auto;margin: 30px;border-radius: 15px;" class="shadow p-3 ">
-                <h5>Post-Incorporation Compliances</h5>
-                <p align="justify">When a Limited Liability company enrollment is done, then the recently incorporated
-                    LLP is relied upon to get done with the following compliances. These compliances are one time in
-                    nature and are not repeated.</p>
-                <ul>
-                    <li> Partnership Agreement Filing</li>
-                    <li> Apply for PAN & TAN</li>
-                    <li>Open Bank Account</li>
-                </ul>
-            </div>
-            <div style="width: 500px;height: auto;margin: 30px;border-radius: 15px;" class="shadow p-3 ">
-                <h5>Annual Compliances Requirements after the LLP Registration</h5>
+{% if pages.extra_split_faces %}
+<div class="container">
+{% for extra in pages.extra_split_faces.all %}
 
-                <p align="justify">After the completion of the formation procedure, LLP is relied upon to comply with
-                    the yearly consistent necessities.If the number of transactions after the LLP registration is zero,
-                    then LLP will record NIL return.</p>
-                <ul>
-                    <li>Statement of Account & Solvency</li>
-                    <li>LLP Annual Return</li>
-                    <li>Income Tax Return</li>
-                </ul>
-            </div>
+<div class="Doc-card">
+    <h2 class="fw-bolder text-center mt-3 " >
+        {{extra.title}}
+    </h2>
+    
+    <p class=" p-3 px-5 text-center"> {{extra.description}}</p>
+    
+    <div>
 
-        </div>
+        <img src="{% static 'img/why.png' %}" alt="why " style="width: 400px;height: auto;">
+
 
     </div>
-    <br />
+    <div>
+       
+        <ul>
+            {% for point in extra.get_points_list %}
+            <li>{{point}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if extra.extras %}
+    <p align='justify' class="text-center">{{extra.extras}}</p>
+    {% endif %}
+    </div>
+   
+    </div>
+    {% endfor %}
+{% endif %}
+
+
+ <br  >
 
     <!-- FAQ -->
     <div class="container " id = 'FAQ'>
-        <h2 class="fw-bolder text-center mt-3 mb-5">
+        <h2 class="fw-bolder text-center mt-3 mb-5 tt">
             {{pages.faq.title}}
         </h2>
 
@@ -391,68 +328,25 @@
         </div>
     </div>
 
+ 
+
+
+   {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <button
-        type="button"
-        class="btn btn-success btn-floating btn-lg"
-        id="btn-back-to-top"
-        >
-  <i class="fas fa-arrow-up"></i>
-</button>
-<script>
-    //Get the button
-let mybutton = document.getElementById("btn-back-to-top");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (
-    document.body.scrollTop > 20 ||
-    document.documentElement.scrollTop > 20
-  ) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-// When the user clicks on the button, scroll to the top of the document
-mybutton.addEventListener("click", backToTop);
-
-function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-
-    <script src="https://kit.fontawesome.com/60ebc1f7d7.js" crossorigin="anonymous"></script>
-</body>
-
-</html>

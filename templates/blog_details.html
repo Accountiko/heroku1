@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% load customtag %}
+
+
+  
+
+   {% block content %}
+   
+    {% autoescape off %}
+    <style>
+        .blog{
+            padding: 10px;
+            width: 80%;
+            margin: 30px;
+            border-radius: 10px;
+
+        }
+        .blog img{
+            width: 300px!important;
+            height: auto!important;
+        }
+       
+        @media only screen and (min-width:768px) {
+            .blog img{
+            width: 800px!important;
+            height: auto!important;
+            display: flex;
+            flex: auto;
+            justify-content: center;
+          
+            
+            
+        }
+        .blog{
+            width: 60%;
+            margin-top: 30px;
+            padding: 40px;
+
+            
+            
+        }
+        }
+  
+
+    </style>
+   <div class="cover text-center text-white " style="background-color: aqua;">
+    <div class="container">
+       
+       
+        <div class="row ">
+            <div class=" flex-column mt-3 ">
+                <h1 class="m-3  fw-bolder">{{blogs.title}}</h1>
+
+                <div class=" px-3 py-3 ">
+
+                    {{blogs.description}}
+
+                   
+                    
+                </div>
+                <a href="https://wa.me/{{PHONE}}?text={{blogs.title|whatsappmsg}}"
+                    target="_blank"><img class="request" src="{% static 'img/request.png' %}" /></a>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+    <div style="display: flex;flex-direction: column; align-items: center;justify-content: center;font-size: large;" align="justify">
+        <div class=" blog shadow" style="display: flex;flex-direction:column;">
+            <h1 class="text-center fw-bolder">{{blogs.title}}</h1>
+            <p class="fw-light fst-italic text-center fs-6 "  >{{blogs.description}}</p>
+            {{blogs.context}}
+        </div>
+    </div>
+    
+     
+
+    {% endautoescape %}
+   {% endblock %}

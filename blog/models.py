@@ -8,6 +8,7 @@ from pages.models import Category
 # Create your models here.
 class Blog(models.Model):
     title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255,null=True,blank=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=True,null=True)
     context = RichTextField()
     date_publish = models.DateTimeField(auto_now=True)
@@ -22,5 +23,5 @@ class Blog(models.Model):
 
     def get_absolute_url(self):
     # u create url only here and then reference here throughout of your project
-        return reverse("blogs",args=[self.slug])
+        return reverse("blog_details",args=[self.slug])
     

@@ -1,76 +1,197 @@
+{% extends "base.html" %}
 {% load static %}
 {% load customtag %}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accountiko</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'page.css' %}" />
+
+
+
+ 
+{% block content %}
+
+<div class="cover-home " >
+   <h1>{{home.0.cover.title}}</h1>
+   <p>{{home.0.cover.description}}</p>
+   <a href="https://wa.me/{{contact.0.Whatsapp_number}}?text=i%20need"
+        target="_blank"><img class="request" src="{% static 'img/request.png' %}" style="margin: 5px!important;"/></a>
+
    
-    <script src="https://code.jquery.com/jquery-3.6.4.js"
-        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script>
+   <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffff" fill-opacity="1" d="M0,192L80,202.7C160,213,320,235,480,240C640,245,800,235,960,240C1120,245,1280,267,1360,277.3L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+</div>
+<div class="container mt-5">
+   <h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" > Our services</h1>
+
+   <div class="services">
+    {% for i in page %}
+      <div class="box1" data-aos="fade-up-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
+         <span></span>
+         <div class="content1">
+           <h2>{{i.title}}</h2>
+         </div>
+       </div>
+    {% endfor %}
       
-    </script>
+      
 
-</head>
+   </div>
+  
 
-<body>
-    {% for page in pages %}
-    <a href="{{page.get_absolute_url}}">{{page.title}}</a>
+
+</div>
+
+<!--why us-->
+<h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true"> Why Choose Us ?</h1>
+<div class="why">
+   
+   <div class="cont">
+    {% for i,j in home.0.why_choose.get_whychoose_titles_list|zips:home.0.why_choose.get_whychoose_descriptions_list %}
+      <div class="comp">
+         <div class="rounded-img"></div>
+         <div class="whycontent">
+            <h5 class="text-center">{{i}}</h5>
+            <p>{{j}}</p>
+         </div>
+      </div>
+      {% endfor %}
+     
+      
+   </div>
+</div>
+<br>
+
+<!-- for About us-->
+<div class="container" style="border-radius: 25px;" >
+   <h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true"> About Us ?</h1>
+
+   <div class="aboutus">
+      <div class="a-left ">
+         <img class="shadow" src="https://static.vecteezy.com/system/resources/thumbnails/007/158/460/small_2x/3d-minimal-notification-bell-icon-with-color-objects-floating-around-on-pastel-background-new-alert-concept-for-social-media-element-3d-bell-alarm-render-isolated-on-purple-pastel-background-free-vector.jpg" alt="">
+      </div>
+      <div class="a-right">
+         <h1>{{home.0.about_us.title}}</h1>
+         <p>{{home.0.about_us.description}}</p>
+
+         <div class="social">
+            
+               <a href="#" class=" me-4">
+                 <i class="fab fa-facebook-f"></i>
+               </a>
+               <a href="" class=" me-4">
+                 <i class="fab fa-twitter"></i>
+               </a>
+               <a href="" class=" me-4">
+                 <i class="fab fa-google"></i>
+               </a>
+               <a href="" class=" me-4">
+                 <i class="fab fa-instagram"></i>
+               </a>
+               <a href="" class=" me-4">
+                 <i class="fab fa-linkedin"></i>
+               </a>
+               <a href="" class=" me-4">
+                 <i class="fab fa-github"></i>
+               </a>
+              
+             
+         </div>
+      </div>
+   </div>
+</div>
+<br>
+
+
+<!-- testimonal section-->
+
+
+
+
+
+<section class="section-medium section-arrow--bottom-center  " style="background: linear-gradient(to right, #56ccf2, #2f80ed);">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12 text-white text-center">
+               <h2 class="section-title " data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true"> {{home.0.testimonial.title}}</h2>
+               <p class="section-sub-title" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-once="true">
+                {{home.0.testimonial.description}}
+               </p>
+           </div>
+       </div>
+   </div>
+</section>
+
+<section class="section-primary t-bordered">
+   <div class="container">
+       <div class="row testimonial-three testimonial-three--col-three">
+            {% for i,j in home.0.testimonial.get_client_name_list|zips:home.0.testimonial.get_client_position_list|zips:home.0.testimonial.get_client_reviews_list %}
+           <div class="col-md-4 testimonial-three-col">
+               <div class="testimonial-inner">
+                   <div class="testimonial-image" itemprop="image">
+                       <img width="180" height="180" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                   </div>
+                   <div class="testimonial-content">
+                       <p>{{j}}</p>
+                   </div>
+                   <div class="testimonial-meta">
+                       <strong class="testimonial-name" itemprop="name">{{i.0}}</strong>
+                       <span class="testimonial-job-title" itemprop="jobTitle">{{i.1}}</span> 
+                   </div>
+               </div>
+           </div>
+           {% endfor %}
+
+           
+       </div>
+   </div>
+</section>
+
+<!-- for clients-->
+<h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in" data-aos-once="true">Our clients</h1>
+
+<div class="autoscroll">
+   <marquee scrolldelay = "200" scrollamount = "50" class="scroll">
+    {% for i in home.0.clients.all %}
+      <img alt="{{i.title}}" src="{{i.img.url}}"/>
+    {% endfor %}
+      
+  </marquee>
+</div>
+<br>
+
+<div class="counterworks">
+  {% for i in home.0.work_history.all %}
+    <div class="counter1">
+        <img src="{{i.img.url}}" alt="">
+        <h1>{{i.counts_number}}+</h1>
+            <h5>{{i.counts_title}}</h5>
+    </div>
     {% endfor %}
    
-       
 
-    <button
-        type="button"
-        class="btn btn-success btn-floating btn-lg"
-        id="btn-back-to-top"
-        >
-  <i class="fas fa-arrow-up"></i>
-</button>
-<script>
-    //Get the button
-let mybutton = document.getElementById("btn-back-to-top");
+</div>
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-  scrollFunction();
-};
+<br>
 
-function scrollFunction() {
-  if (
-    document.body.scrollTop > 20 ||
-    document.documentElement.scrollTop > 20
-  ) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-// When the user clicks on the button, scroll to the top of the document
-mybutton.addEventListener("click", backToTop);
+<!-- contact us  -->
+<div class="contat">
+   <form target="_blank" action="https://formsubmit.co/johnfrancis.vincent@gmail.com" method="POST" class="form">
+      <span class="title">Contact Us for Enquiry</span>
+      <p class="description">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.</p>
+      <div>
+        <input placeholder="Enter your email" type="email" name="email" >
+        <button type="submit">Enquiry</button>
+        
+        
+      </div>
+      
+      <a href="https://wa.me/{{contact.0.Whatsapp_number}}?text=i%20need"
+        target="_blank"><img class="request shadow" src="{% static 'img/request.png' %}" style="margin: 5px!important;margin-top: 20px!important;"/></a>
 
-function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
+    </form>
+    <iframe class="map shadow " src="{{contact.0.location_url}}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+</div>
 
-    <script src="https://kit.fontawesome.com/60ebc1f7d7.js" crossorigin="anonymous"></script>
-</body>
 
-</html>
+
+
+{% endblock content%}

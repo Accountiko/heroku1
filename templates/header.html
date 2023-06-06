@@ -1,0 +1,487 @@
+{% load static %}
+{% load customtag %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+    <!-- Google Fonts (poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,200;1,400;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Google material fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="brand"><img src="{% static 'img/logo.png' %}" alt=""
+                style="width: 150px;height: auto;"></a>
+        <div class="menu-container">
+            <ul class="mega-menu " style="margin-top: 8px;">
+                <li class="dropdown1">
+                    <div>
+                        <span>Business setup </span>
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Business</a>
+                        </li>
+
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Business Setup in India</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+
+
+
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Business Setup in India</p>
+                                </li>
+                                {% for i in categories %}
+                                <!--Business Setup in India-->
+                                {% if i.title == "Business Setup in India" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+
+                                {% endif %}
+                                {% endfor %}
+
+
+
+
+                            </ul>
+
+                        </li>
+
+                        <li class="sub-dropdown1">
+                            <div>
+
+                                <span>International Business Setup</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+
+
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>International Business Setup</p>
+                                </li>
+                                <!--Internlational Business Setup in India-->
+                                {% for i in categories %}
+                                {% if i.title == "International Business Setup" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+
+
+                            </ul>
+
+                        </li>
+                    </ul>
+                </li>
+                <!-- Trademark -->
+                <li class="dropdown1">
+                    <div>
+                        <span> Trademark & IP</span>
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Trademark & IP</a>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Trademark</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Trademark</p>
+                                </li>
+                                <!-- Trademark -->
+                                {% for i in categories %}
+                                {% if i.title == "Trademark" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Patent</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Patent</p>
+                                </li>
+                                <!--Pantent-->
+                                {% for i in categories %}
+                                {% if i.title == "Patent" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Copyright</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Copyright</p>
+                                </li>
+                                <!--Copyrights-->
+                                {% for i in categories %}
+                                {% if i.title == "Copyright" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- taxes section -->
+                <li class="dropdown1">
+                    <div>
+                        <span>Taxes</span>
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Taxes</a>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>GST</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>GST</p>
+                                </li>
+                                <!--GST-->
+                                {% for i in categories %}
+                                {% if i.title == "GST" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Tax Filling</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Tax Filling</p>
+                                </li>
+                                <!--Tax Filling-->
+                                {% for i in categories %}
+                                {% if i.title == "Tax Filling" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </li>
+                <!-- Registration section -->
+                <li class="dropdown1">
+                    <div>
+                        <span>Registrations</span>
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Registrations</a>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Government Registrations</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Government Registrations</p>
+                                </li>
+                                <!--Government Registrations-->
+                                {% for i in categories %}
+                                {% if i.title == "Government Registrations" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>NGO's</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>NGO's</p>
+                                </li>
+                                <!--   NGO's   -->
+                                {% for i in categories %}
+                                {% if i.title == "NGO's" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>BIS 's</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>BIS 's</p>
+                                </li>
+                                <!--  BIS 's  -->
+                                {% for i in categories %}
+                                {% if i.title == "BIS 's" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>FSSAI</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>FSSAI</p>
+                                </li>
+                                <!--  FSSAI  -->
+                                {% for i in categories %}
+                                {% if i.title == "FSSAI" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- Compliance section -->
+                <li class="dropdown1">
+                    <div>
+                        <span>Compliance</span>
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Compliance</a>
+                        </li>
+                        <li class="sub-dropdown1">
+                            <div>
+                                <span>Compliance</span>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                            </div>
+                            <ul class="sub-menu">
+                                <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                    <p>Compliance</p>
+                                </li>
+                                <!--  Compliance  -->
+                                {% for i in categories %}
+                                {% if i.title == "Compliance" %}
+                                {% for page in i.title|navbar %}
+                                <li>
+                                    <a href="{{page.get_absolute_url}}">{{page}}</a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+
+
+
+                </li>
+            </ul>
+            </li>
+            <!-- Import and export section -->
+            <li class="dropdown1">
+                <div>
+                    <span>Import & Export</span>
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+                <ul class="menu">
+                    <li>
+                        <a href="#">Import & Export</a>
+                    </li>
+                    <li class="sub-dropdown1">
+                        <div>
+                            <span>Exports & Imports</span>
+                            <span class="material-symbols-outlined">
+                                chevron_right
+                            </span>
+                        </div>
+                        <ul class="sub-menu">
+                            <li style="font-weight: bolder;color: rgba(225, 53, 11, 0.767);">
+                                <p>Exports & Imports</p>
+                            </li>
+                            <!--  Exports and Imports  -->
+                            {% for i in categories %}
+                            {% if i.title == "Exports and Imports" %}
+                            {% for page in i.title|navbar %}
+                            <li>
+                                <a href="{{page.get_absolute_url}}">{{page}}</a>
+                            </li>
+                            {% endfor %}
+                            {% for page in i.title|navbarblog %}
+                            <li>
+                                <a href="{{page.get_absolute_url}}">{{page}}</a>
+                            </li>
+                            {% endfor %}
+
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="sub-dropdown1">
+                        <div>
+                            <span>col 2</span>
+                            <span class="material-symbols-outlined">
+                                chevron_right
+                            </span>
+                        </div>
+                        <ul class="sub-menu">
+
+                        </ul>
+                    </li>
+
+
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        <div class="buttons">
+
+            <button class="menu-btn">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+        </div>
+    </nav>
+    <div style="margin-top: 90px;">
+
+
+        {% block content %}
+
+        {% endblock %}
+
+
+
+    </div>
+
+
+
+    <script src="{% static 'navbar.js' %}"></script>
+</body>
+
+</html>

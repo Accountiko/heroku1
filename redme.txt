@@ -2,3 +2,20 @@ cd francisworks/accountiko/codes/app
 source myenv/bin/activate
 cd accountiko
 python manage.py runserver
+
+
+{% for i in categories %} 
+{{i.title}} # catory title
+{% if i.title == "catergoty" %}
+{% for page in i.title|navbar %}
+li 
+a
+li
+{% endfor %}
+{% endif %}                      
+
+
+ul
+{% endfor %}
+
+

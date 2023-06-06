@@ -1,102 +1,166 @@
+
+
 @media only screen and (min-width:768px) {
     .list-group li{
       font-size: 1.5em;
     } 
       
   }
+
   .cover{
-      background-image: url('assets/cove.jpg');
+       
+      background-image: url('../static/img/cover.jpg');
       background-size: cover;
-      height: 70vh;
+      height: 75vh;
       background-position: center center;
       background-repeat: no-repeat;
-         
+     
      
   }
   
+  .tt{
+    color: rgb(63, 150, 255);
+  }
   .list-group li{
       list-style-type:none;
   }
   
-  
+  .bloged{
+    background-color: aqua;
+  }
   
   .request{
       
       width: auto;
       height: 40px;
       margin :30px;
+      border-radius: 20px;
+      border: 1px solid greenyellow;
   
   }
+
+  .request::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 5px solid greenyellow;
+    border-radius: 25px;
+    outline-offset: 2px;
+    outline-width: 2px;
+    animation: animate 1s linear infinite;
+
+  }
+  @keyframes animate {
+    0%{
+      outline-offset: 2px;
+      opacity: 1;
+    }
+    100%{
+      outline-offset: 20px;
+      opacity: 0;
+    }
+
+  }
+
+
   .request2{
       width: auto;
       height: 40px;
       
   }
   
-  .sub-menu{
+  .sub-menud{
       
       display: flex;
       justify-content: space-between;
-      padding: 12px;
+      padding: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
       font-size:1.3em;
       align-items: center;
+      font-weight: 500;
+      
+     
       
   }
   
-  .sub-menu a{
+  .sub-menud a{
       text-decoration: none;
-      color: black;
+      color: rgb(255, 255, 255);
+      font-size: 16px;
   }
   
   .card{
-      width: 300px;
+      width: 350px;
       height: 300px;
-      margin: 20px;
+      margin: 10px;
       align-items: center;
       border-radius: 15px;
       z-index: 0;
       
+      background: linear-gradient(45deg,#4099ff,#73b4ff);
+      color: white;
+      padding: 10px;
+      
+
   }
   
   .card img{
       width: 130px;
       height: 130px;
+      margin: 5px;
+      
+      
       
   }
   
   .cards{
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
       margin: 10px;
       flex-wrap: wrap;
+      justify-content: center;
       margin-top: 10px;
   }
   
   .Doc-card{
       display: flex;
-      flex-direction: row;
+      flex-direction:row;
       flex-wrap:wrap;
+      justify-content: center;
+      align-items: center;
+      padding:50px 20px;
+      background: linear-gradient(to right, #2431b7, #1ea5e4) ;
+      border-radius: 30px;
+      color: white;
       
-      justify-content:center;
-      
-      
-  
-  
+
       
   }
   .tbg{
-      background-image: url('assets/tbg.avif');
+      
+    background:white; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
       background-size: cover;
       background-repeat: no-repeat;
   }
   .Doc-card li{
-      list-style:url('assets/check.png');
+      
       list-style-position: inside;
       padding: 5px;
-      display: flex;
+      list-style-type: circle;
+      
       
   }
+.D-right{
+    flex: 5;
+}
+.D-left{
+   flex: 7;
+}
   
   .h-card{
       width: 100%;
@@ -107,11 +171,8 @@
       margin-bottom: 20px;
   
       margin: 20px;
-      background-image: url('assets/suma.jpeg');
+      background-image: url('../static/img/suma.jpeg');
       background-size: cover;
-      
-  
-     
       
       
   
@@ -122,7 +183,8 @@
   
   .h-cards{
       display: flex;
-      justify-content:flex-end;
+      flex-direction: row;
+      justify-content:center;
       flex-wrap: wrap;
       
   }
@@ -189,6 +251,7 @@
     }
   
   .sticky {
+    
       position: -webkit-sticky;
       
       position: sticky;
@@ -196,3 +259,258 @@
      
      
     }
+
+
+
+/* for extra cards  */
+
+.card1 {
+    width: 600px;
+    height: 200px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+    scale:100%;
+    transition: scale 0.5s ease 0s;
+  }
+  
+  .card__content {
+    background: rgb(63, 150, 255);
+    border-radius: 17px;
+    width: 100%;
+    height: 100%;
+  }
+  .card1 h4{
+    font-weight: 800;
+  }
+  .card1:hover {
+    scale: 110%;
+    
+  }
+
+/* For Extra cards  */
+
+.card2 {
+    width: 300px;
+    height: 200px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #314dde 0%, #5078c8 46%, #70c6ff 100%);
+    border-radius: 15px;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    cursor: pointer;
+    margin: 20px;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+  }
+  
+  .card2-content {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+  
+  .card2-content .card2-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: inherit;
+    text-transform: uppercase;
+  }
+  
+  .card2-content .card2-para {
+    color: inherit;
+    opacity: 0.8;
+    font-size: 14px;
+  }
+  
+  .card2:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    z-index: 1;
+  }
+  
+  .card2:hover:before {
+    transform: translateX(-100%);
+  }
+  
+  .card2:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    z-index: 1;
+  }
+  
+  .card2:hover:after {
+    transform: translateX(100%);
+  }
+  
+  
+  
+  
+  
+ /* Glyph, by Harry Roberts */
+.hr-line{
+  background:linear-gradient(to right,  #2431b7, #1ea5e4); 
+  width: 40%;
+  height: 6px;
+  border-radius: 5px;
+  display: inline-block !important;
+  outline: 2px solid rgb(0, 106, 163);
+  outline-offset: 3px;
+  
+}
+hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: solid 2px #2431b7 ;
+    
+    color:#2431b7;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+    
+}
+hr.style-eight:after {
+    content: "✶";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+
+
+/*  for eligibility  */
+
+.outer{
+  background: linear-gradient(to right, #06beb6, #48b1bf); 
+  display: flex;
+  justify-content: center;
+  border-radius: 200px;
+  padding: 20px 40px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  
+}
+.inner-c{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background:  linear-gradient(to right, #0f2027, #203a43, #2c5364);;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 20px;
+  padding: 8px;
+  scale:100%;
+  transition: scale 0.5s ease 0s;
+  
+}
+.inner-c:hover {
+  scale: 110%;
+  
+}
+
+/* for docs requird */
+
+
+.doc-2{
+  display: flex;
+  background: linear-gradient(to right, #2431b7, #1ea5e4) ;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  padding: 50px 60px;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.doc-2-left{
+flex: 4;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+.doc-2-left img{
+  width: 350px;
+  margin: auto;
+
+}
+.doc-2-right{
+flex: 8;
+
+}
+.doc-2-right p {
+  padding: 10px 20px;
+  background: white;
+  border-radius: 13px;
+ 
+  margin-bottom: 15px;
+  scale:100%;
+  transition: scale 0.5s ease 0s;
+}
+
+.doc-2-right p:hover{
+  scale: 110%;
+}
+
+
+@media (max-width:500px){
+  .cover{
+    height: 60%!important;
+
+  }
+  .tt{
+    font-size: 20px;
+  }
+  hr{
+    display: none;
+  }
+  .doc-2{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+  }
+  .doc-2-left{
+    margin-bottom: 10px;
+  }
+  .outer{
+    padding: 20px 20px;
+  }
+  .Doc-card ul{
+    padding-left: 0px;
+  }
+}
