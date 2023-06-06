@@ -154,3 +154,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PHONE = "8608750899"
 WHATSAPP_MSG = "I'm interested in "
+
