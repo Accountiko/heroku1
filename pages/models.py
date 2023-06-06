@@ -85,6 +85,8 @@ class SplitFace(models.Model):
     def get_points_list(self):
         return self.points.split('|')
     
+    
+    
 
 
 class Cards(models.Model):

@@ -270,10 +270,16 @@
         <br />
     </div>
     <!--Why choose -->
-    <div class="container">
+ 
+
+    {% if pages.extra_split_faces %}
+        <div class="container">
+        {% for extra in pages.extra_split_faces.all %}
         <h2 class="fw-bolder text-center">
-            Why choose LLP Registration?
+            {{extra.title}}
         </h2>
+        <p class="fst-italic fw-light p-3 px-5 text-center"> {{extra.description}}</p>
+        
         <div class="Doc-card">
             <div>
 
@@ -282,27 +288,21 @@
 
             </div>
             <div>
+               
                 <ul>
-                    <li>It has a different legal entity, not at all like partnership firms.</li>
-                    <li>The liability and duty of each partner are limited to the commitment<br> made by the
-                        partner.</li>
-                    <li>An LLP has a ‘never-ending progression’ that is broadened endurance until <br>it is brought
-                        to an end by a shared agreement between the partners.</li>
-                    <li>The expenditure on establishing an LLP is low.</li>
-                    <li>An audit is not required as LLPs are medium and independent companies</li>
-                    <li>Less agreement and guidelines in the formation of LLP.</li>
-                    <li>No terms for least capital commitment.</li>
-                    <li>The responsibility of an LLP can be effortlessly moved to someone else. <br>All you require
-                        is to select them as a Designated Partner of the LLP.</li>
+                    {% for point in extra.get_points_list %}
+                    <li>{{point}}</li>
+                    {% endfor %}
                 </ul>
             </div>
 
-        </div>
-        <p align='justify'>The least number of partners to join an LLP is 2 and there is no restriction over the maximum
-            number of partners. The force and duties of assigned partners are managed by the LLP agreement. They are
-            straight responsible for the consistency of all the considerable number of arrangements, mentioned in the
-            LLP Act, 2008 and terms characterized in the LLP agreement.</p>
-    </div>
+            </div>
+            {% if extra.extras %}
+            <p align='justify'>{{extra.extras}}</p>
+            {% endif %}
+            </div>
+            {% endfor %}
+    {% endif %}
 
     <br />
 
@@ -384,68 +384,9 @@
              </div>
             {% endfor %}
 
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        Who can become a partner in an LLP?
-                    </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate
-                        the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine
-                        this being filled with some actual content.</div>
-                </div>
-            </div>
+            
 
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                        Do I have to be available in-person to incorporate an LLP?
-                    </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate
-                        the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more
-                        exciting happening here in terms of content, but just filling up the space to make it look, at
-                        least at first glance, a bit more representative of how this would look in a real-world
-                        application.</div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
-                        Once I pay for the incorporation, is there any other payment before I get the Incorporation Certificate?
-                    </button>
-                </h2>
-                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate
-                        the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more
-                        exciting happening here in terms of content, but just filling up the space to make it look, at
-                        least at first glance, a bit more representative of how this would look in a real-world
-                        application.</div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseThree">
-                        How much money do I need to invest upfront in starting the business?
-                    </button>
-                </h2>
-                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate
-                        the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more
-                        exciting happening here in terms of content, but just filling up the space to make it look, at
-                        least at first glance, a bit more representative of how this would look in a real-world
-                        application.</div>
-                </div>
+            
             </div>
         </div>
     </div>
